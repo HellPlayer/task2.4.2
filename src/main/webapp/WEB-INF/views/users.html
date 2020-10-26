@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+<div>
+    <h1>Users</h1>
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>lastname</th>
+            <th>email</th>
+        </tr>
+        <tr th:each="usr : ${users}">
+            <td th:text="${usr.getId()}">Id</td>
+            <td th:text="${usr.getName()}">name</td>
+            <td th:text="${usr.getLastname()}">lastname</td>
+            <td th:text="${usr.getEmail()}">email</td>
+        </tr>
+    </table>
+</div>
+<div>
+    <a href="/">Main page</a>
+</div>
+</body>
+</html>
