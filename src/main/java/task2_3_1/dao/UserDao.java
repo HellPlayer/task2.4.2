@@ -1,5 +1,6 @@
 package task2_3_1.dao;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import task2_3_1.model.User;
 
 import java.util.List;
@@ -15,4 +16,6 @@ public interface UserDao {
     User getById(Long userId);
 
     List<User> getAll();
+
+    User getUserByName(String username);
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.stereotype.Repository;
+import task2_3_1.model.Role;
 import task2_3_1.model.User;
 
 import javax.persistence.EntityManager;
@@ -15,6 +16,7 @@ import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.util.Collections;
 import java.util.List;
 
 @Repository
@@ -28,6 +30,7 @@ public class UserDaoImpl implements UserDao {
     public void add(User user) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
+        user.setRoles(Collections.singleton(Role.USER));
         entityManager.persist(user);
         entityManager.getTransaction().commit();
     }
@@ -67,5 +70,16 @@ public class UserDaoImpl implements UserDao {
         CriteriaQuery<User> all = cq.select(rootEntry);
         TypedQuery<User> allQuery = entityManager.createQuery(all);
         return allQuery.getResultList();
+    }
+
+    @Override
+    public User getUserByName(String username) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        User user = entityManager.createQuery(
+                "SELECT u from User u WHERE u.username = :username", User.class).
+                setParameter("username", username).getSingleResult();
+        entityManager.getTransaction().commit();
+        return user;
     }
 }

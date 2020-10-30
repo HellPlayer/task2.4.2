@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.example</groupId>
-  <artifactId>2.3.1.Spring_hibernate_CRUD</artifactId>
+  <artifactId>2.4.2.SpringSecurity_hibernate_CRUD</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>2.3.1.Spring_hibernate_CRUD Maven Webapp</name>
+  <name>2.4.2.SpringSecurity_hibernate_CRUD Maven Webapp</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -18,7 +18,7 @@
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
 
-    <spring.version>5.2.9.RELEASE</spring.version>
+    <spring.version>5.2.1.RELEASE</spring.version>
   </properties>
 
   <dependencies>
@@ -50,6 +50,18 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-orm</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-web</artifactId>
+      <version>${spring.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.security</groupId>
+      <artifactId>spring-security-config</artifactId>
       <version>${spring.version}</version>
     </dependency>
 

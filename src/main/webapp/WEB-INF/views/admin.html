@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Admin</title>
+</head>
+<body>
+<div>
+    <a href="/admin/add">Add new user</a>
+</div>
+<div>
+    <a href="/admin/users">Show all users</a>
+</div>
+<div>
+    <a href="/admin/edit">Edit user</a>
+</div>
+<div>
+    <a href="/admin/delete">Delete user</a>
+</div>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>

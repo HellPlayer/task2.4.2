@@ -10,20 +10,28 @@
     <table border="1">
         <tr>
             <th>id</th>
-            <th>name</th>
-            <th>lastname</th>
+            <th>username</th>
+            <th>password</th>
             <th>email</th>
+            <th>role</th>
         </tr>
         <tr th:each="usr : ${users}">
             <td th:text="${usr.getId()}">Id</td>
-            <td th:text="${usr.getName()}">name</td>
-            <td th:text="${usr.getLastname()}">lastname</td>
+            <td th:text="${usr.getUsername()}">username</td>
+            <td th:text="${usr.getPassword()}">password</td>
             <td th:text="${usr.getEmail()}">email</td>
+            <td th:each="roles : ${usr.getRoles()}"
+                th:text="${roles.name()}">
+            </td>
         </tr>
     </table>
 </div>
 <div>
-    <a href="/">Main page</a>
+    <a href="/admin">Admin page</a>
 </div>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
 </body>
 </html>
